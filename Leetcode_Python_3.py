@@ -51,3 +51,25 @@ sn = Solution()
 # res = sn.searchInsert(nums,target)
 nums = [1,3,5,6]; target = 7
 res = sn.searchInsert(nums,target)
+#--------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Easy
+# Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+class Solution:
+    def singleNumber(self, nums: list[int]) -> int:
+        ndict = {}
+        if len(nums) == 1: return nums[0]
+        for i in nums:
+            if i not in ndict:
+                ndict[i] = 1
+            else:
+                ndict[i] += 1
+        for k,v in ndict.items():
+            if v == 1: return k
+        
+
+sn = Solution()
+nums = [2,2,1]
+res = sn.singleNumber(nums)
+print(res)
